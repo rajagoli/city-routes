@@ -21,13 +21,13 @@ Trenton, Albany
 * **From above example data**
   - Boston is directly connected to New York which is considered unidirectional from Boston to New York
   - Boston is in directly connected to Philadelphia (Boston -> Newark -> Philadelphia)
-  - In Boston, New York 2 city pair Boston is origin city and New York is the destination city
-  - inputCityPairs Map -> 
+  - In Boston, New York city pair Boston is origin city and New York is the destination city
+  - inputCityPairs Map created by code -> 
     - Boston(key), New York(value)
     - Philadelphia(key), Newark(value)
     - Newark(key), Boston(value)
     - Trenton(key), Albany(value)
-  - inputCityRoads Map ->
+  - inputCityRoads Map created by code ->
     - Boston=[New York, Newark]
     - New York=[Boston]
     - Newark=[Boston, Philadelphia]
@@ -42,8 +42,8 @@ Trenton, Albany
   - The  method buildCityPairsAndRoads has a PostConstruct annotation which allows this method to be executed only once to read data from the input data file.
     * Step 1: creates a cityPairs map(refer above map in data section) with key being first city(origin) in the city pair and value being second city(destination) in the city pair
     * Step 2: loops thru the city pairs map and creates another map cityRoads(refer above map in data section) with value being a linked hash set.
-    - The method isCitiesConnectedInDirectly takes origin and destination cities as input and while searching thru inputCityRoads map creates a linkedHashSet and a Queue. 
-      Until the queue is empty the method takes each city from the queue and checks if the cities are connected directly by calling method isCitiesConnectedDirectly. If the    cities are not connected directly then the method gets linked hash set from the map by using the origin city as key and then iterates linked hash set to see if there is a connection between origin and destination.
+  - The method isCitiesConnectedInDirectly takes origin and destination cities as input and while searching thru inputCityRoads map creates a linkedHashSet and a Queue. 
+    Until the queue is empty the method takes each city from the queue and checks if the cities are connected directly by calling method isCitiesConnectedDirectly. If the           cities are not connected directly then the method gets linked hash set from the map by using the origin city as key and then iterates linked hash set to see if there is a       connection between origin and destination.
 
 ### Test Coverage
 * Jococo - with maven goal covered ratio of .99 which is 99%
